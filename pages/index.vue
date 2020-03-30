@@ -7,7 +7,7 @@
       <v-flex sm6 xs12 md6 lg3>
         <material-stats-card
           color="blue"
-          icon="mdi-store"
+          icon="mdi-account-plus"
           title="Cas confirmes"
           v-bind:value="senegal_data.confirmed"
         />
@@ -15,7 +15,7 @@
       <v-flex sm6 xs12 md6 lg3>
         <material-stats-card
           color="red"
-          icon="mdi-content-copy"
+          icon="mdi-account-off"
           title="Deces"
           v-bind:value="senegal_data.deaths"
         />
@@ -23,7 +23,7 @@
       <v-flex sm6 xs12 md6 lg3>
         <material-stats-card
           color="green"
-          icon="mdi-information-outline"
+          icon="mdi-account-check"
           title="Gueris"
           v-bind:value="senegal_data.recovered"
         />
@@ -31,8 +31,8 @@
       <v-flex sm6 xs12 md6 lg3>
         <material-stats-card
           color="orange"
-          icon="mdi-twitter"
-          title="Actif"
+          icon="mdi-account-star"
+          title="Sous traitement"
           v-bind:value="senegal_data.active"
         />
       </v-flex>
@@ -74,7 +74,7 @@
       <v-flex sm6 xs12 md6 lg3>
         <material-stats-card
           color="blue"
-          icon="mdi-store"
+          icon="mdi-account-plus"
           title="Cas confirmes"
           v-bind:value="all_data.confirmed"
         />
@@ -82,7 +82,7 @@
       <v-flex sm6 xs12 md6 lg3>
         <material-stats-card
           color="red"
-          icon="mdi-content-copy"
+          icon="mdi-account-off"
           title="Deces"
           v-bind:value="all_data.death"
         />
@@ -90,7 +90,7 @@
       <v-flex sm6 xs12 md6 lg3>
         <material-stats-card
           color="green"
-          icon="mdi-information-outline"
+          icon="mdi-account-check"
           title="Gueris"
           v-bind:value="all_data.recovery"
         />
@@ -98,8 +98,8 @@
       <v-flex sm6 xs12 md6 lg3>
         <material-stats-card
           color="orange"
-          icon="mdi-twitter"
-          title="Actif"
+          icon="mdi-account-star"
+          title="Sous traitement"
           v-bind:value="all_data.active"
         />
       </v-flex>
@@ -470,7 +470,7 @@ export default {
       "https://aiobackend.herokuapp.com/data/all"
     );
     const senegaldata = await axios.get(
-      "https://aiobackend.herokuapp.com/country_data/country"
+      "https://aiobackend.herokuapp.com/country_data/country/148"
     );
     const all_graph_data = await axios.get(
       "https://coronakm.appspot.com/grapth_data/"

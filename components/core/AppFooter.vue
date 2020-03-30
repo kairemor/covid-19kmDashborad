@@ -16,7 +16,7 @@
       <v-icon color="tertiary" size="17">mdi-heart</v-icon>for covid19 news
     </span>
   </v-footer>
-</template>
+</template>                                                                                                           
 
 <script>
 export default {

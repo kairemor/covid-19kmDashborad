@@ -54,9 +54,14 @@ export default {
       logo: "/covid191.jpeg",
       links: [
         {
-          to: "/dashboard",
+          to: "/",
           icon: "mdi-view-dashboard",
           text: "Dashboard"
+        },
+        {
+          to: "/stats",
+          icon: "mdi-angle-right",
+          text: "Statistiques"
         },
         {
           to: "/maps",

@@ -466,16 +466,18 @@ export default {
     });
   },
   async created() {
-    const alldata = await axios.get("http://127.0.0.1:8080/data/all");
+    const alldata = await axios.get(
+      "https://aiobackend.herokuapp.com/data/all"
+    );
     const senegaldata = await axios.get(
-      "http://127.0.0.1:8080/country_data/country"
+      "https://aiobackend.herokuapp.com/country_data/country"
     );
     const all_graph_data = await axios.get(
-      "http://localhost:5000/grapth_data/"
+      "https://coronakm.appspot.com/grapth_data/"
     );
 
     const country_graph_data = await axios.get(
-      "http://localhost:5000/grapth_data/Senegal"
+      "https://coronakm.appspot.com/grapth_data/Senegal"
     );
 
     this.all_data = alldata.data;

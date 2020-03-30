@@ -1,15 +1,3 @@
-# nuxtjs-dashboard
-
-> NuxtJs Dashboard is based on Vuetify Material Theme purposed by Creative Tim
-
-![Product Gif](./static/vuetify-material-dashboard.gif)
-
-## Demo / Presentation
-[Live Demo !](https://nuxtjs-dashboard.herokuapp.com/)
-
-NuxtJs Dashboard Vuetify Material is a beautiful resource built over [NuxtJs](https://nuxtjs.org/) coupled with [Vuetify](https://vuetifyjs.com/en/). It will help you get started developing dashboards in no time. 
-This dashboard is the official Vuetify version of the Original [Material Dashboard](https://www.creative-tim.com/product/material-dashboard). Using the Dashboard is pretty simple but requires basic knowledge of [NuxtJs](https://nuxtjs.org/) and [Vuetify](https://vuetifyjs.com/en/).
-
 ## Getting started
 
 ``` bash
@@ -60,4 +48,6 @@ Vuetify is developed exactly according to Material Design spec. Every component 
 - [NuxtJs](https://nuxtjs.org/) for the wonderful vue framework <3
 - [Vuetify](https://vuetifyjs.com/en/) for the beautiful vue framework UI
 - [Vuetify Material Theme](https://www.creative-tim.com/product/vuetify-material-dashboard?ref=vuetifyjs.com) for the beautiful work realized by [Creative Tim](https://www.creative-tim.com/)
+
 # covid-19kmDashborad
+[![Netlify Status](https://api.netlify.com/api/v1/badges/aff88004-4b32-4b9a-997a-50b847a0b225/deploy-status)](https://app.netlify.com/sites/zen-saha-12fa42/deploys)

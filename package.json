@@ -1,8 +1,8 @@
 {
-  "name": "nuxtjs-dashboard",
+  "name": "corona-dashboard",
   "version": "1.0.0",
-  "description": "NuxtJs Dashboard",
-  "author": "Jimmy Jouanne",
+  "description": "Covid19 Dashboard",
+  "author": "Kaire mor",
   "private": true,
   "scripts": {
     "dev": "nuxt",

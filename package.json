@@ -14,6 +14,7 @@
   "dependencies": {
     "@mdi/font": "^3.6.95",
     "@nuxtjs/axios": "^5.5.3",
+    "@nuxtjs/pwa": "^3.0.0-beta.20",
     "cross-env": "^5.2.0",
     "nuxt": "^2.8.0",
     "vue-chartist": "^2.2.0",

@@ -62,12 +62,12 @@ export default {
           to: "/stats",
           icon: "mdi-angle-right",
           text: "Statistiques"
-        },
-        {
-          to: "/maps",
-          icon: "mdi-map-marker",
-          text: "Maps"
         }
+        // {
+        //   to: "/maps",
+        //   icon: "mdi-map-marker",
+        //   text: "Maps"
+        // }
       ],
       responsive: true
     };

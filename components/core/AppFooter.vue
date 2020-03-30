@@ -10,7 +10,7 @@
       &copy;
       {{ (new Date()).getFullYear() }}
       <a
-        href="https://www.creative-tim.com/"
+        href="https://kairemor.wordpress.com"
         target="_blank"
       >KMTC</a>, made with
       <v-icon color="tertiary" size="17">mdi-heart</v-icon>for covid19 news

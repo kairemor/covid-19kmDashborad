@@ -108,7 +108,17 @@ export default {
     materialChartCard,
     materialStatsCard
   },
-  data() {
+  async asyncData() {
+    const continentale_data = await axios.get(
+      "https://coronakm.appspot.com/continent/"
+    );
+    const confirmed_mondiale = await axios.get(
+      "https://coronakm.appspot.com/country/most-confirmed/10"
+    );
+    const deaths_mondiale = await axios.get(
+      "https://coronakm.appspot.com/country/most-death/10"
+    );
+
     return {
       headers_continent: [
         {
@@ -170,10 +180,10 @@ export default {
           align: "right"
         }
       ],
-      items: [],
-      items_recovered: [],
-      items_confirmed: [],
-      items_deaths: [],
+      items: continentale_data.data || [],
+      items_recovered: confirmed_mondiale.data || [],
+      items_confirmed: deaths_mondiale.data || [],
+      items_deaths: deaths_mondiale.data || [],
       tabs: 0,
       list: {
         0: false,
@@ -182,28 +192,33 @@ export default {
       }
     };
   },
+  head() {
+    return {
+      title: "Covid19 Statistique"
+    };
+  },
   methods: {
     complete(index) {
       this.list[index] = !this.list[index];
     }
-  },
-  async created() {
-    const continentale_data = await axios.get(
-      "https://coronakm.appspot.com/continent/"
-    );
-    const confirmed_mondiale = await axios.get(
-      "https://coronakm.appspot.com/country/most-confirmed/10"
-    );
-    const deaths_mondiale = await axios.get(
-      "https://coronakm.appspot.com/country/most-death/10"
-    );
-
-    this.items = continentale_data.data;
-    this.items_confirmed = confirmed_mondiale.data;
-    this.items_deaths = deaths_mondiale.data;
-    this.items_recovered = deaths_mondiale.data;
-    console.log(this.items_confirmed);
   }
+  // async created() {
+  //   const continentale_data = await axios.get(
+  //     "https://coronakm.appspot.com/continent/"
+  //   );
+  //   const confirmed_mondiale = await axios.get(
+  //     "https://coronakm.appspot.com/country/most-confirmed/10"
+  //   );
+  //   const deaths_mondiale = await axios.get(
+  //     "https://coronakm.appspot.com/country/most-death/10"
+  //   );
+
+  //   this.items = continentale_data.data;
+  //   this.items_confirmed = confirmed_mondiale.data;
+  //   this.items_deaths = deaths_mondiale.data;
+  //   this.items_recovered = deaths_mondiale.data;
+  //   console.log(this.items_confirmed);
+  // }
 };
 </script>
 <style scoped>

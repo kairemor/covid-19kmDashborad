@@ -9,7 +9,7 @@
           color="blue"
           icon="mdi-account-plus"
           title="Cas confirmes"
-          v-bind:value="senegal_data.confirmed"
+          v-bind:value="senegal_data.confirmed.toString()"
         />
       </v-flex>
       <v-flex sm6 xs12 md6 lg3>
@@ -17,7 +17,7 @@
           color="red"
           icon="mdi-account-off"
           title="Deces"
-          v-bind:value="senegal_data.deaths"
+          v-bind:value="senegal_data.deaths.toString()"
         />
       </v-flex>
       <v-flex sm6 xs12 md6 lg3>
@@ -25,7 +25,7 @@
           color="green"
           icon="mdi-account-check"
           title="Gueris"
-          v-bind:value="senegal_data.recovered"
+          v-bind:value="senegal_data.recovered.toString()"
         />
       </v-flex>
       <v-flex sm6 xs12 md6 lg3>
@@ -33,7 +33,7 @@
           color="orange"
           icon="mdi-account-star"
           title="Sous traitement"
-          v-bind:value="senegal_data.active"
+          v-bind:value="senegal_data.active.toString()"
         />
       </v-flex>
 
@@ -155,12 +155,142 @@ export default {
     const { data } = await axios.get(
       `https://aiobackend.herokuapp.com/country_data/country_name/`
     );
+
     const alldata = await axios.get(
       "https://aiobackend.herokuapp.com/data/all"
     );
+    // const all_graph_data = await axios.get(
+    //   "https://coronakm.appspot.com/grapth_data/"
+    // );
+
+    // const country_graph_data = await axios.get(
+    //   "https://coronakm.appspot.com/grapth_data/Senegal"
+    // );
+
+    // this.all_data = alldata.data;
+    // this.senegal_data = senegaldata.data;
+
+    // const values_confirmed = all_graph_data.data.values_confirmed
+    //   .split(",")
+    //   .map(value => parseInt(value));
+    // const values_recovered = all_graph_data.data.values_recovered
+    //   .split(",")
+    //   .map(value => parseInt(value));
+    // const values_deaths = all_graph_data.data.values_deaths
+    //   .split(",")
+    //   .map(value => parseInt(value));
+
+    // const country_values_confirmed = country_graph_data.data.values_confirmed
+    //   .split(",")
+    //   .map(value => parseInt(value));
+    // const country_values_recovered = country_graph_data.data.values_recovered
+    //   .split(",")
+    //   .map(value => parseInt(value));
+    // const country_values_deaths = country_graph_data.data.values_deaths
+    //   .split(",")
+    //   .map(value => parseInt(value));
+
+    // const column_name = all_graph_data.data.columns.split(",");
+
     return {
       senegal_data: data,
       all_data: alldata.data
+      // confirmedCasesChart: {
+      //   data: {
+      //     labels: column_name,
+      //     series: values_confirmed
+      //   },
+      //   options: {
+      //     low: 0,
+      //     high: values_confirmed[values_confirmed.length - 1], // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+      //     chartPadding: {
+      //       top: 0,
+      //       right: 0,
+      //       bottom: 0,
+      //       left: 10
+      //     }
+      //   }
+      // },
+      // recoveredCasesChart: {
+      //   data: {
+      //     labels: column_name,
+      //     series: values_recovered
+      //   },
+      //   options: {
+      //     low: 0,
+      //     high: values_recovered[values_recovered.length - 1], // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+      //     chartPadding: {
+      //       top: 0,
+      //       right: 0,
+      //       bottom: 0,
+      //       left: 10
+      //     }
+      //   }
+      // },
+      // deathsCasesChart: {
+      //   data: {
+      //     labels: column_name,
+      //     series: values_deaths
+      //   },
+      //   options: {
+      //     low: 0,
+      //     high: values_deaths[values_deaths.length - 1], // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+      //     chartPadding: {
+      //       top: 0,
+      //       right: 0,
+      //       bottom: 0,
+      //       left: 10
+      //     }
+      //   }
+      // },
+      // countryConfirmedCasesChart: {
+      //   data: {
+      //     labels: column_name,
+      //     series: country_values_confirmed
+      //   },
+      //   options: {
+      //     low: 0,
+      //     high: country_values_confirmed[country_values_confirmed.length - 1], // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+      //     chartPadding: {
+      //       top: 0,
+      //       right: 0,
+      //       bottom: 0,
+      //       left: 10
+      //     }
+      //   }
+      // },
+      // countryRecoveredCasesChart: {
+      //   data: {
+      //     labels: column_name,
+      //     series: country_values_recovered
+      //   },
+      //   options: {
+      //     low: 0,
+      //     high: country_values_recovered[country_values_recovered.length - 1], // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+      //     chartPadding: {
+      //       top: 0,
+      //       right: 0,
+      //       bottom: 0,
+      //       left: 10
+      //     }
+      //   }
+      // },
+      // countryDeathsCasesChart: {
+      //   data: {
+      //     labels: column_name,
+      //     series: country_values_deaths
+      //   },
+      //   options: {
+      //     low: 0,
+      //     high: country_values_deaths[country_values_deaths.length - 1], // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+      //     chartPadding: {
+      //       top: 0,
+      //       right: 0,
+      //       bottom: 0,
+      //       left: 10
+      //     }
+      //   }
+      // }
     };
   },
   data() {

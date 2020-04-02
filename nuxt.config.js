@@ -89,5 +89,22 @@ export default {
     extend(config, ctx) {}
   },
 
-
+  manifest: {
+    name: 'Covid19 Statistiques',
+    short_name: 'Covid19Stats',
+    lang: 'en',
+    display: 'standalone',
+  },
+  workbox: {
+    runtimeCaching: [{
+      urlPattern: 'https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.0.45/css/materialdesignicons.min.css',
+      handler: 'cacheFirst',
+      method: 'GET',
+      strategyOptions: {
+        cacheableResponse: {
+          statuses: [0, 200]
+        }
+      }
+    }, ]
+  }
 }

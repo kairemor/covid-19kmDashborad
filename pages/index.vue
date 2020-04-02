@@ -151,10 +151,22 @@ export default {
     materialChartCard,
     materialStatsCard
   },
+  async asyncData() {
+    const { data } = await axios.get(
+      `https://aiobackend.herokuapp.com/country_data/country_name/`
+    );
+    const alldata = await axios.get(
+      "https://aiobackend.herokuapp.com/data/all"
+    );
+    return {
+      senegal_data: data,
+      all_data: alldata.data
+    };
+  },
   data() {
     return {
-      all_data: {},
-      senegal_data: {},
+      // all_data: {},
+      // senegal_data: {},
       confirmedCasesChart: {
         data: {
           labels: [],
@@ -289,12 +301,9 @@ export default {
     });
   },
   async created() {
-    const alldata = await axios.get(
-      "https://aiobackend.herokuapp.com/data/all"
-    );
-    const senegaldata = await axios.get(
-      "https://aiobackend.herokuapp.com/country_data/country/148"
-    );
+    // const senegaldata = await axios.get(
+    //   "https://aiobackend.herokuapp.com/country_data/country/148"
+    // );
     const all_graph_data = await axios.get(
       "https://coronakm.appspot.com/grapth_data/"
     );
@@ -303,8 +312,8 @@ export default {
       "https://coronakm.appspot.com/grapth_data/Senegal"
     );
 
-    this.all_data = alldata.data;
-    this.senegal_data = senegaldata.data;
+    // this.all_data = alldata.data;
+    // this.senegal_data = senegaldata.data;
 
     const values_confirmed = all_graph_data.data.values_confirmed
       .split(",")

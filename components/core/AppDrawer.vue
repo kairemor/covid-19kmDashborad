@@ -64,6 +64,11 @@ export default {
           text: "Statistiques"
         }
         // {
+        //   to: "/news",
+        //   icon: "mdi-angle-right",
+        //   text: "Information"
+        // }
+        // {
         //   to: "/maps",
         //   icon: "mdi-map-marker",
         //   text: "Maps"

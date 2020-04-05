@@ -9,10 +9,7 @@
     <span class="font-weight-light copyright">
       &copy;
       {{ (new Date()).getFullYear() }}
-      <a
-        href="https://kairemor.wordpress.com"
-        target="_blank"
-      >KMTC</a>, made with
+      <a href="http://kairemor.ml" target="_blank">KMTC</a>, made with
       <v-icon color="tertiary" size="17">mdi-heart</v-icon>for covid19 news
     </span>
   </v-footer>

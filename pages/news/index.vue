@@ -1,24 +1,15 @@
 <template>
-  <v-container fill-height fluid grid-list-xl>
+  <v-container fluid grid-list-xl>
     <v-layout wrap>
-      <div v-for="(article, index) in articles" :key="index">
-        <v-flex sm6 xs12 md6 lg6>
-          <a :href="article.link" target="_blank">
-            <v-card class="mx-auto" max-width="400">
-              <v-img
-                class="white--text align-end"
-                height="200px"
-                src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-              >
-                <v-card-title>{{ article.title.substring(10) }}</v-card-title>
-              </v-img>
-              <v-card-text class="text--primary">
-                <div>{{ article.title }}</div>
-              </v-card-text>
-            </v-card>
-          </a>
-        </v-flex>
-      </div>
+      <v-flex sm xs12 md3 lg3 v-for="(article, index) in articles" :key="index">
+        <a :href="article.link" target="_blank">
+          <v-card>
+            <v-card-text class="text--primary">
+              <div>{{ article.title }}</div>
+            </v-card-text>
+          </v-card>
+        </a>
+      </v-flex>
     </v-layout>
   </v-container>
 </template>

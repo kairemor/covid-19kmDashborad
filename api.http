@@ -1,0 +1,1 @@
+GET http://covid19-news.herokuapp.com/api/covid19/faqs

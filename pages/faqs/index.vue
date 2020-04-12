@@ -1,18 +1,14 @@
 <template>
   <v-container fluid grid-list-xl>
     <v-layout wrap>
-      <v-flex sm xs12 md3 lg4 v-for="(faq, index) in faqs" :key="index">
-        <v-card class="mx-auto" max-width="344">
+      <v-flex sm12 xs12 md4 lg3 v-for="(faq, index) in faqs" :key="index">
+        <v-card class="mx-auto">
           <v-card-title>{{faq.question}}</v-card-title>
           <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn icon @click="show = !show">
-              <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
-            </v-btn>
+            <v-btn text color="blue" small rounded v-on:click="show = !show">Reponse</v-btn>
           </v-card-actions>
           <v-expand-transition>
             <div v-show="show">
-              <v-divider></v-divider>
               <v-card-text>{{faq.answer}}</v-card-text>
             </div>
           </v-expand-transition>
@@ -32,6 +28,11 @@ export default {
     );
     console.log(data);
     return { faqs: data.data };
+  },
+  data() {
+    return {
+      show: true
+    };
   }
 };
 </script>

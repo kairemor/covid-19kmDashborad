@@ -3,6 +3,14 @@
     <v-layout wrap>
       <v-flex sm12 md12 lg12>
         <h2 align="center" class="font-weight-light mx-auto light-shadow">Senegal</h2>
+        <p align="center" class="font-weight-light mx-auto light-shadow">
+          Taux de mortalite :
+          <b>{{ ((senegal_data.death_rate * 100).toString()).slice(0,4) + "%" }}</b>
+        </p>
+        <p align="center" class="font-weight-light mx-auto light-shadow">
+          Taux de guerison :
+          <b>{{ ((senegal_data.recovery_rate * 100).toString()).slice(0,4) + "%" }}</b>
+        </p>
       </v-flex>
       <v-flex sm6 xs12 md6 lg3>
         <material-stats-card
@@ -70,6 +78,14 @@
 
       <v-flex sm12 md12 lg12>
         <h2 align="center" class="font-weight-light mx-auto light-shadow">Mondiale</h2>
+        <p align="center" class="font-weight-light mx-auto light-shadow">
+          Taux de mortalite :
+          <b>{{ ((all_data.death_rate * 100).toString()).slice(0,4) + "%" }}</b>
+        </p>
+        <p align="center" class="font-weight-light mx-auto light-shadow">
+          Taux de guerison :
+          <b>{{ ((all_data.recovery_rate * 100).toString()).slice(0,4) + "%" }}</b>
+        </p>
       </v-flex>
       <v-flex sm6 xs12 md6 lg3>
         <material-stats-card
@@ -455,6 +471,10 @@ export default {
       .split(",")
       .map(value => parseInt(value));
 
+    const values_active = values_confirmed.map(
+      (value, index) => value - values_recovered[index] - values_deaths[index]
+    );
+
     const country_values_confirmed = country_graph_data.data.values_confirmed
       .split(",")
       .map(value => parseInt(value));
@@ -464,6 +484,11 @@ export default {
     const country_values_deaths = country_graph_data.data.values_deaths
       .split(",")
       .map(value => parseInt(value));
+
+    const country_values_active = country_values_confirmed.map(
+      (value, index) =>
+        value - country_values_recovered[index] - country_values_deaths[index]
+    );
 
     const column_name = all_graph_data.data.columns.split(",");
     this.confirmedCasesChart.data.labels = column_name;
@@ -475,10 +500,12 @@ export default {
     this.countryDeathsCasesChart.data.labels = column_name;
 
     this.confirmedCasesChart.data.series.push(values_confirmed);
+    this.confirmedCasesChart.data.series.push(values_active);
     this.recoveredCasesChart.data.series.push(values_recovered);
     this.deathsCasesChart.data.series.push(values_deaths);
 
     this.countryConfirmedCasesChart.data.series.push(country_values_confirmed);
+    this.countryConfirmedCasesChart.data.series.push(country_values_active);
     this.countryRecoveredCasesChart.data.series.push(country_values_recovered);
     this.countryDeathsCasesChart.data.series.push(country_values_deaths);
 
